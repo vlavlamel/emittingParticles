@@ -1,6 +1,9 @@
 import numpy as np
-from matplotlib import pyplot as plt
 import matplotlib.animation as animation
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
 
 # Parameters of equation
 a = 1.5
@@ -36,6 +39,7 @@ for j in range(M - 1):
     x_array[N - 1] = x_array[N - 2]
     u.append(x_array)
 
+'''Animation'''
 fig, ax = plt.subplots()
 
 line, = ax.plot(x, u[0])
@@ -47,5 +51,15 @@ def animate(i):
 
 
 ani = animation.FuncAnimation(fig, animate, interval=1, frames=M, repeat=False)
+
+'''3d plot'''
+fig1 = plt.figure()
+ac = fig1.gca(projection='3d')
+
+X, Y = np.meshgrid(x, t)
+surf = ac.plot_surface(X, Y, u, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+ac.set_xlabel('X')
+ac.set_ylabel('t')
+ac.set_zlabel('T')
 
 plt.show()
