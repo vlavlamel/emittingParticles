@@ -11,7 +11,10 @@ l = 2 * np.pi
 T = 2
 # Steps
 N = 50
-M = 10 + 2 * pow(N, 2)
+# Stability
+#M = 10 + 2 * pow(N, 2)
+# Instability
+M = 542
 x = np.linspace(0, l, N)
 t = np.linspace(0, T, M)
 h = x[1]

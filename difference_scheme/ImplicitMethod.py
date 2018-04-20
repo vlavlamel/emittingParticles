@@ -11,7 +11,7 @@ l = 2 * np.pi
 T = 2
 # Steps
 N = 1000
-M = 100
+M = 1000
 x = np.linspace(0, l, N)
 t = np.linspace(0, T, M)
 h = x[1]
@@ -41,6 +41,7 @@ for j in range(M - 1):
         A.append(-c_i / (b_i + a_i * A[i - 1]))
         B.append((d - a_i * B[i - 1]) / (b_i + a_i * A[i - 1]))
     y = [0] * N
+    An = a()
     y[N - 1] = B[N - 1] / (1 - A[N - 1])
     for i in reversed(range(N - 1)):
         y[i] = A[i] * y[i + 1] + B[i]

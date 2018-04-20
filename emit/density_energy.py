@@ -90,10 +90,12 @@ for i in range(ep.n):
         W = W * sigmas[0] / sigmas[1]
         if W < W_min and E < E_min:
             continue
-        sigma_dif = 2 * np.pi * Z * pow(r_e, 2) * (
+        sigma_int = 2 * np.pi * Z * pow(r_e, 2) * (
             (1 + alpha) / pow(alpha, 2) * (2 * (1 + alpha) / (1 + 2 * alpha) - np.log(1 + 2 * alpha) / alpha) + np.log(
                 1 + 2 * alpha) / (2 * alpha) - (1 + 3 * alpha) / pow(1 + 2 * alpha, 2))
-        k = sigma_dif / sigmas[0]
+        sigma_dif = Z * pow(r_e, 2) / 2 * pow(1 + alpha * (1 - cos_teta), -2) * (
+            1 + pow(cos_teta, 2) + (pow(alpha, 2) * pow(1 - cos_teta, 2)) / (1 + alpha * (1 - cos_teta)))
+        k = sigma_dif / sigma_int
         for j in range(n):
             R_central = np.sqrt(pow(x1, 2) + pow(y1, 2) + pow(z1 - d_central[j], 2))
             density_central[j] = density_central[j] + k * W * np.exp(-sigmas[1] * R_central) / pow(R_central, 2)

@@ -124,5 +124,5 @@ def isInArea(x, y, z):
 
 
 initialPoints()
-# emitter(True)
-# drawing()
+#emitter(True)
+#drawing()
