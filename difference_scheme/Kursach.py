@@ -12,10 +12,10 @@ beta = 5 * pow(10, -7)
 thickness = 100
 H1 = pow(10, 5)
 H2 = 2 * pow(10, 5)
-T = 10000
+T = 1000
 # Steps
-N = 100
-M = 100
+N = 1000
+M = 1000
 x = np.linspace(0, thickness, M)
 t = np.linspace(0, T, N)
 h = x[1]
@@ -65,6 +65,7 @@ for j in range(N - 1):
 fig, ax = plt.subplots()
 
 line, = ax.plot(x, u[0])
+ax.set_yticks(np.arange(0, 1.1, 0.1))
 
 
 def animate(i):
@@ -73,6 +74,7 @@ def animate(i):
 
 
 ani = animation.FuncAnimation(fig, animate, interval=1, frames=N, repeat=False)
+plt.show()
 
 '''3d plot'''
 fig1 = plt.figure()

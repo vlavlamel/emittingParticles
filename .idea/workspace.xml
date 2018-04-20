@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46b837d5-8a4f-420f-b1f7-342c8cc4358f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/difference_scheme/Kursach.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/difference_scheme/ExplicitMethod.py" afterPath="$PROJECT_DIR$/difference_scheme/ExplicitMethod.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/difference_scheme/ImplicitMethod.py" afterPath="$PROJECT_DIR$/difference_scheme/ImplicitMethod.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emit/density_energy.py" afterPath="$PROJECT_DIR$/emit/density_energy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emit/emitting_particles.py" afterPath="$PROJECT_DIR$/emit/emitting_particles.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/difference_scheme/Kursach.py" afterPath="$PROJECT_DIR$/difference_scheme/Kursach.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,8 +29,8 @@
       <file leaf-file-name="Kursach.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/difference_scheme/Kursach.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+            <state relative-caret-position="402">
+              <caret line="88" column="10" lean-forward="false" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -436,8 +432,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/difference_scheme/Kursach.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        <state relative-caret-position="402">
+          <caret line="88" column="10" lean-forward="false" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
