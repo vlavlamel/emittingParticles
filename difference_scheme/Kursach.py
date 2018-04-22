@@ -22,8 +22,6 @@ h = x[1]
 tau = t[1]
 # Concentration
 u = []
-# Initial condition
-u.append([1] * M)
 
 
 # Diffusion coefficient
@@ -44,23 +42,29 @@ def a_next(i):
 
 
 # Tridiagonal matrix algorithm
-for j in range(N - 1):
-    A = [1]
-    B = [0]
-    for i in range(1, M - 1):
-        a_i = -tau * a(i) / pow(h, 2)
-        b_i = 1 + tau * a_next(i) / pow(h, 2) + tau * a(i) / pow(h, 2) + tau * beta
-        c_i = -tau * a_next(i) / pow(h, 2)
-        d = u[j][i]
-        A.append(-c_i / (b_i + a_i * A[i - 1]))
-        B.append((d - a_i * B[i - 1]) / (b_i + a_i * A[i - 1]))
-    y = [0] * M
-    Am = a(M - 1) / (a(M - 1) + k * h)
-    y[M - 1] = Am * B[M - 2] / (1 - Am * A[M - 2])
-    for i in reversed(range(M - 1)):
-        y[i] = A[i] * y[i + 1] + B[i]
-    u.append(y)
+def tridiagonal():
+    u.clear()
+    # Initial condition
+    u.append([1] * M)
+    for j in range(N - 1):
+        # A = [1]
+        A = [-(a_next(0) / h) / (-k - a_next(0) / h)]
+        B = [0]
+        for i in range(1, M - 1):
+            a_i = -tau * a(i) / pow(h, 2)
+            b_i = 1 + tau * a_next(i) / pow(h, 2) + tau * a(i) / pow(h, 2) + tau * beta
+            c_i = -tau * a_next(i) / pow(h, 2)
+            d = u[j][i]
+            A.append(-c_i / (b_i + a_i * A[i - 1]))
+            B.append((d - a_i * B[i - 1]) / (b_i + a_i * A[i - 1]))
+        y = [0] * M
+        Am = a(M - 1) / (a(M - 1) + k * h)
+        y[M - 1] = Am * B[M - 2] / (1 - Am * A[M - 2])
+        for i in reversed(range(M - 1)):
+            y[i] = A[i] * y[i + 1] + B[i]
+        u.append(y)
 
+tridiagonal()
 '''Animation'''
 fig, ax = plt.subplots()
 
@@ -85,5 +89,34 @@ surf = ac.plot_surface(X, Y, u, cmap=cm.coolwarm, linewidth=0, antialiased=False
 ac.set_xlabel('X')
 ac.set_ylabel('t')
 ac.set_zlabel('C')
+
+# tridiagonal()
+# plt.figure(1)
+# plt.plot(x, u[N - 1])
+# plt.yticks(np.arange(0, 1.1, 0.1))
+# plt.title("Do = 0.01, beta = 5 10^(-7), k = 0.05")
+#
+# Do = Do * 5
+# tridiagonal()
+# plt.figure(2)
+# plt.plot(x, u[N - 1])
+# plt.yticks(np.arange(0, 1.1, 0.1))
+# plt.title("Do = 0.05, beta = 5 10^(-7), k = 0.05")
+#
+# Do = Do / 5
+# beta = beta * 1000
+# tridiagonal()
+# plt.figure(3)
+# plt.plot(x, u[N - 1])
+# plt.yticks(np.arange(0, 1.1, 0.1))
+# plt.title("Do = 0.01, beta = 5 10^(-4), k = 0.05")
+#
+# beta = beta / 1000
+# k = k / 100
+# tridiagonal()
+# plt.figure(4)
+# plt.plot(x, u[N - 1])
+# plt.yticks(np.arange(0, 1.11, 0.1))
+# plt.title("Do = 0.01, beta = 5 10^(-7), k = 0.0005")
 
 plt.show()
